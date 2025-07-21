@@ -1,575 +1,624 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Hadi Emami's personal resume showcasing expertise in data science, remote sensing, and programming.">
-  <meta name="keywords" content="Hadi Emami, data scientist, remote sensing, Python, R, GIS, machine learning">
-  <title>Hadi Emami - Data Specialist</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f8fafc;
-      color: #1f2937;
-    }
-    .swiper-slide img {
-      width: 100%;
-      max-width: 400px;
-      height: 225px;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 2px solid #87ceeb;
-      object-position: center;
-      aspect-ratio: 16/9;
-      margin: 0 auto;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .swiper-slide img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    }
-    .section-title {
-      font-size: 2.25rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 2.5rem;
-      background: linear-gradient(90deg, #87ceeb, #4b9cd3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .profile-img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 4px solid #87ceeb;
-      object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    .hover-scale {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .hover-scale:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    }
-    .btn-primary {
-      background: linear-gradient(90deg, #87ceeb, #4b9cd3);
-      color: #ffffff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      transition: background 0.3s ease, transform 0.2s ease;
-      font-weight: 600;
-    }
-    .btn-primary:hover {
-      background: linear-gradient(90deg, #6ab0d6, #3b82f6);
-      transform: translateY(-2px);
-    }
-    .btn-primary:focus {
-      outline: 2px solid #87ceeb;
-      outline-offset: 2px;
-    }
-    header {
-      background-image: url('banner.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      min-height: 320px;
-      position: relative;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    .teaching-slider .swiper-slide {
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .teaching-slider .swiper-wrapper {
-      align-items: stretch;
-    }
-    nav {
-      position: sticky;
-      top: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      padding: 1rem 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    }
-    nav a {
-      color: #1f2937;
-      font-weight: 600;
-      padding: 0.5rem 1rem;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #4b9cd3;
-    }
-    @media (max-width: 640px) {
-      header {
-        min-height: 240px;
-      }
-      .profile-img {
-        width: 120px;
-        height: 120px;
-      }
-      .section-title {
-        font-size: 1.75rem;
-      }
-    }
-    .skills-card, .cert-card {
-      background-color: #ffffff;
-      border: 2px solid #87ceeb;
-      border-radius: 12px;
-      padding: 2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
-    }
-    .skills-card:hover, .cert-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    }
-    .skill-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.75rem;
-      font-size: 1rem;
-      color: #1f2937;
-    }
-    .skill-item i {
-      color: #87ceeb;
-      margin-right: 0.75rem;
-      width: 20px;
-      text-align: center;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .progress-bar {
-      height: 6px;
-      background-color: #e5e7eb;
-      border-radius: 3px;
-      overflow: hidden;
-      margin-top: 0.25rem;
-    }
-    .progress-bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #87ceeb, #4b9cd3);
-      transition: width 1s ease;
-    }
-    .cert-img {
-      width: 100%;
-      max-width: 400px;
-      border-radius: 8px;
-      border: 2px solid #87ceeb;
-      margin: 0 auto;
-      display: block;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadi Emami - Remote Sensing Expert</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Banner */
+        .banner {
+            width: 100%;
+            height: 400px;
+            background: url('https://hadiiemami.github.io/assets/me/banner.jpg') no-repeat center/cover;
+        }
+
+        /* Header */
+        header {
+            background: #3498db;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ecf0f1;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* About Section */
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .about img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Section Titles */
+        h2 {
+            font-size: 2rem;
+            color: #3498db;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Courses Slider */
+        .swiper-container {
+            width: 100%;
+            padding: 1rem 0;
+        }
+
+        .swiper-slide {
+            text-align: center;
+        }
+
+        .course-card, .project-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .course-card:hover, .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-card img, .project-card img {
+            width: 100%;
+            max-width: 1024px;
+            height: 1024px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .project-card img {
+            height: 1024px;
+            width: 1536px;
+        }
+
+        .course-card h3, .project-card h3 {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            color: #333;
+        }
+
+        .course-card a {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .course-card a:hover {
+            background: #2980b9;
+        }
+
+        /* Certificate Section */
+        .certificate {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .certificate img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .certificate a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .certificate a:hover {
+            text-decoration: underline;
+        }
+
+        /* Accordion Sections */
+        .accordion {
+            margin-bottom: 2rem;
+        }
+
+        .accordion-header {
+            background: #3498db;
+            color: white;
+            padding: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            transition: background 0.3s;
+        }
+
+        .accordion-header:hover {
+            background: #2980b9;
+        }
+
+        .accordion-content {
+            display: none;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion-content.active {
+            display: block;
+        }
+
+        .accordion-content ul {
+            list-style: none;
+        }
+
+        .accordion-content li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Animations */
+        .satellite-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            opacity: 0.3;
+            z-index: -1;
+            animation: moveSatellite 20s linear infinite;
+        }
+
+        @keyframes moveSatellite {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(100vw, 100vh); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .satellite-footer {
+            position: relative;
+            width: 200px;
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #3498db;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .course-card img, .project-card img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="text-center">
-    <a href="#about-title">About</a>
-    <a href="#certifications-title">Certifications</a>
-    <a href="#skills-title">Skills</a>
-    <a href="#projects-title">Projects</a>
-    <a href="#teaching-title">Teaching</a>
-  </nav>
+    <!-- Background Satellite Animation -->
+    <video class="satellite-bg" autoplay loop muted>
+        <source src="https://hadiiemami.github.io/assets/me/S%20Satellite.webm" type="video/webm">
+    </video>
 
-  <!-- Header -->
-  <header class="bg-gray-100 py-12 text-center" role="banner">
-    <img src="photo_2024-02-07_15-48-40.jpg" alt="Hadi Emami's profile picture" class="profile-img mx-auto mb-4" loading="lazy">
-    <h1 class="text-4xl md:text-5xl font-bold">Hadi Emami</h1>
-    <p class="text-base md:text-lg mt-2">Data Specialist, Programmer, and Instructor</p>
-    <div class="mt-4 flex justify-center space-x-4">
-      <a href="https://github.com/hadiiemami" target="_blank" class="text-sky-400 hover:text-sky-500" aria-label="GitHub Profile"><i class="fab fa-github fa-2x"></i></a>
-      <a href="www.linkedin.com/in/hadi-emami-4973142b1" target="_blank" class="text-sky-400 hover:text-sky-500" aria-label="LinkedIn Profile"><i class="fab fa-linkedin fa-2x"></i></a>
-      <a href="mailto:hadi.emami@example.com" class="text-sky-400 hover:text-sky-500" aria-label="Email Hadi Emami"><i class="fas fa-envelope fa-2x"></i></a>
+    <!-- Banner -->
+    <div class="banner"></div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#courses">Courses</a>
+            <a href="#certificate">Certificate</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#work">Work Experience</a>
+            <a href="#research">Research</a>
+            <a href="#publications">Publications</a>
+            <a href="#awards">Awards</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <section id="about" class="about">
+            <img src="https://hadiiemami.github.io/assets/me/me.jpg" alt="Hadi Emami">
+            <div>
+                <h2>About Me</h2>
+                <p>I am a Remote Sensing M.Sc. graduate from Shahid Beheshti University, passionate about integrating artificial intelligence with remote sensing to address critical challenges in natural hazard monitoring, sustainable agriculture, and environmental conservation. My master’s thesis focused on winter wheat yield estimation using Sentinel-2 imagery and deep learning (LSTM) models, achieving robust predictive accuracy. With a strong foundation in geospatial analysis and machine learning, I aim to pursue a PhD to develop innovative AI-driven remote sensing solutions for disaster risk management, flood and drought monitoring, and precision agriculture.</p>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses">
+            <h2>My Courses</h2>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Crop%20Type%20Classification%20with%20R.webp" alt="Crop Type Classification with R">
+                            <h3>Crop Type Classification with R</h3>
+                            <a href="https://girs.ir/product/crop-type-r/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Crop%20Yield%20Prediction%20with%20Python.webp" alt="Crop Yield Prediction with Python">
+                            <h3>Crop Yield Prediction with Python</h3>
+                            <a href="https://girs.ir/product/yield-prediction/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Deep%20Learning%20Lithology%20Classification%20for%20Remote%20Sensing.webp" alt="Deep Learning Lithology Classification">
+                            <h3>Deep Learning Lithology Classification</h3>
+                            <a href="https://girs.ir/product/dlearning-classification/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/DEM%20Analysis%20with%20Python.webp" alt="DEM Analysis with Python">
+                            <h3>DEM Analysis with Python</h3>
+                            <a href="https://girs.ir/product/dem-python/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/GDAL%20for%20Geospatial%20Data%20Processing.webp" alt="GDAL for Geospatial Data Processing">
+                            <h3>GDAL for Geospatial Data Processing</h3>
+                            <a href="https://girs.ir/product/gdal-library/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Geographic%20Weighted%20Regression%20with%20Python.webp" alt="Geographic Weighted Regression with Python">
+                            <h3>Geographic Weighted Regression with Python</h3>
+                            <a href="https://girs.ir/product/gwr-mgwr/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Geoprocessing%20with%20R%20-%20Spatial%20data%20and%20satellite%20imagery%20processing.webp" alt="Geoprocessing with R">
+                            <h3>Geoprocessing with R</h3>
+                            <a href="https://girs.ir/product/geoprocessing-with-r/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Land%20Surface%20Temperature%20(LST)%20with%20Python%20&%20R.webp" alt="Land Surface Temperature with Python & R">
+                            <h3>Land Surface Temperature with Python & R</h3>
+                            <a href="https://girs.ir/product/lst-python-r/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Landslide%20Susceptibility%20Mapping%20with%20ANP.webp" alt="Landslide Susceptibility Mapping with ANP">
+                            <h3>Landslide Susceptibility Mapping with ANP</h3>
+                            <a href="https://girs.ir/product/%d9%85%d8%ad%d8%b5%d9%88%d9%84-%d9%be%d9%87%d9%86%d9%87-%d8%a8%d9%86%d8%af%db%8c-%d8%ae%d8%b7%d8%b1-%d9%88%d9%82%d9%88%d8%b9-%d8%b2%d9%85%db%8c%d9%86-%d9%84%d8%ba%d8%b2%d8%b4-%  با-%d9%85%d8%af/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Matplotlib%20for%20Data%20Visualization%20in%20Python.webp" alt="Matplotlib for Data Visualization in Python">
+                            <h3>Matplotlib for Data Visualization in Python</h3>
+                            <a href="#" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Monitoring%20Agriculture%20phenology%20with%20Python%20and%20Sentinel%202%20Imagery.webp" alt="Monitoring Agriculture Phenology">
+                            <h3>Monitoring Agriculture Phenology</h3>
+                            <a href="#" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/NumPy%20for%20Numerical%20Computing%20in%20Python.webp" alt="NumPy for Numerical Computing in Python">
+                            <h3>NumPy for Numerical Computing in Python</h3>
+                            <a href="https://girs.ir/product/numpy/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Object%20oriented%20Satellite%20image%20classification.webp" alt="Object-Oriented Satellite Image Classification">
+                            <h3>Object-Oriented Satellite Image Classification</h3>
+                            <a href="https://girs.ir/product/object-oriented-classification/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Object-Based%20Image%20Analysis%20with%20eCognition.webp" alt="Object-Based Image Analysis with eCognition">
+                            <h3>Object-Based Image Analysis with eCognition</h3>
+                            <a href="https://girs.ir/product/ecognition/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Python%20for%20Geological%20Data%20Analysis.webp" alt="Python for Geological Data Analysis">
+                            <h3>Python for Geological Data Analysis</h3>
+                            <a href="https://zpnegar.com/product/pro_python_course/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Python%20Mastery%200%20-%20100.webp" alt="Python Mastery 0 - 100">
+                            <h3>Python Mastery 0 - 100</h3>
+                            <a href="https://www.modisacademy.ir/product/python/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Satellite%20Image%20Processing%20with%20Python.webp" alt="Satellite Image Processing with Python">
+                            <h3>Satellite Image Processing with Python</h3>
+                            <a href="https://girs.ir/product/satellite-image-with-python/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Satellite%20Imagery%20Time%20Series%20Analysis%20in%20Python.webp" alt="Satellite Imagery Time Series Analysis">
+                            <h3>Satellite Imagery Time Series Analysis</h3>
+                            <a href="https://girs.ir/product/time-series-python/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Snow%20Cover%20mapping%20with%20satellite%20imagery.webp" alt="Snow Cover Mapping">
+                            <h3>Snow Cover Mapping</h3>
+                            <a href="https://girs.ir/product/snow-in-satellite-images/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="course-card">
+                            <img src="https://hadiiemami.github.io/assets/Teach/Vegetation%20&%20Tree%20Cover%20Classification.webp" alt="Vegetation & Tree Cover Classification">
+                            <h3>Vegetation & Tree Cover Classification</h3>
+                            <a href="https://girs.ir/product/%d8%a2%d9%85%d9%88%d8%b2%d8%b4-%d8%a7%d8%b3%d8%aa%d8%ae%d8%b1%d8%a7%d8%ac-%d8%af%d8%b1%d8%ae%d8%aa%d8%a7%d9%86-%d9%88-%d9%be%d9%88%d8%b4%d8%b4-%da%af%db%8c%d8%a7%d9%87%db%8c-%d9%88-%d8%b7%d8%a8%d9%82/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+
+        <!-- Certificate Section -->
+        <section id="certificate" class="certificate">
+            <h2>Certificate</h2>
+            <img src="https://hadiiemami.github.io/CER/cert.PNG" alt="Harvard CS50 Certificate">
+            <p><a href="https://certificates.cs50.io/23dd40d4-d013-4c27-a51e-40e98ab0c767.pdf?size=letter" target="_blank">Verify my Harvard CS50 Certificate</a></p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="accordion">
+            <h2>Skills</h2>
+            <div class="accordion-header">Programming Languages</div>
+            <div class="accordion-content">
+                <ul>
+                    <li>Python</li>
+                    <li>R</li>
+                    <li>JavaScript</li>
+                    <li>Julia</li>
+                </ul>
+            </div>
+            <div class="accordion-header">Geospatial Tools</div>
+            <div class="accordion-content">
+                <ul>
+                    <li>Google Earth Engine (GEE)</li>
+                    <li>ArcGIS, ArcGIS Pro</li>
+                    <li>QGIS</li>
+                    <li>ENVI</li>
+                    <li>eCognition</li>
+                    <li>PostGIS (geospatial database management)</li>
+                </ul>
+            </div>
+            <div class="accordion-header">Data Science & Analytics</div>
+            <div class="accordion-content">
+                <ul>
+                    <li>Machine Learning & Deep Learning</li>
+                    <li>Data Mining</li>
+                    <li>Data Visualization</li>
+                    <li>Database Management (SQL, PostgreSQL)</li>
+                </ul>
+            </div>
+            <div class="accordion-header">DevOps & Tools</div>
+            <div class="accordion-content">
+                <ul>
+                    <li>Docker (containerization for geospatial workflows)</li>
+                    <li>Git, GitHub (version control for collaborative projects)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- Add project images dynamically from hadiiemami.github.io/assets/project -->
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <img src="https://hadiiemami.github.io/assets/project/Project1.webp" alt="Project 1">
+                            <h3>Project 1</h3>
+                        </div>
+                    </div>
+                    <!-- Add more project slides as needed based on your assets/project folder -->
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section id="work" class="accordion">
+            <h2>Work Experience</h2>
+            <div class="accordion-header">Work History</div>
+            <div class="accordion-content">
+                <ul>
+                    <li><strong>Co-founder, Arta Sanjesh Negar</strong> | Remote Sensing Startup, Ardabil, Iran | 2024 – Present<br>Co-founded a startup, leading AI-driven remote sensing solutions for disaster risk and agriculture.</li>
+                    <li><strong>Founder, Modisacademy.ir</strong> | Online Earth Observation Education, Iran | 2023 – Present<br>Established a platform for training in remote sensing and geospatial analysis.</li>
+                    <li><strong>Remote Sensing Researcher, Cropinno Co</strong> | Precision Agriculture, Iran | 2021 – 2022<br>Developed machine learning models for precision agriculture using satellite imagery.</li>
+                    <li><strong>Remote Sensing Manager, Keshtyar Co</strong> | Precision Agriculture, Iran | 2020 – 2021<br>Led remote sensing projects for agricultural land monitoring.</li>
+                    <li><strong>Instructor, Various Platforms</strong> | Geospatial Training, Iran | 2018 – Present<br>Trained 2,000+ learners in remote sensing and GIS across online and in-person platforms.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Research Experience Section -->
+        <section id="research" class="accordion">
+            <h2>Research Experience</h2>
+            <div class="accordion-header">Research Projects</div>
+            <div class="accordion-content">
+                <ul>
+                    <li><strong>Winter Wheat Yield Estimation in Hamedan</strong> | Shahid Beheshti University | 2020 – 2022<br>Estimated wheat yield using Sentinel-2 imagery and LSTM models, achieving 85% accuracy.</li>
+                    <li><strong>Land Surface Temperature Analysis</strong> | Mohaghegh Ardabili University, Iran | 2019 – 2020<br>Analyzed land surface temperature and land use with Landsat-8 for regional planning.</li>
+                    <li><strong>Biophysical Parameter Extraction</strong> | Keshtyar Co., Iran | 2020 – 2021<br>Developed ANN-based algorithms to extract biophysical parameters from Sentinel-2 data (e.g., vegetation cover, chlorophyll, LAI, water content) for precision agriculture.</li>
+                    <li><strong>Vulnerability Assessment of Gas Infrastructure</strong> | Arta Sanjesh Negar, Iran | 2024 – Present<br>Assessed infrastructure resilience to floods and subsidence using satellite monitoring.</li>
+                    <li><strong>Vegetation Index Analysis Software</strong> | Arta Sanjesh Negar, Iran | Jan 2025 (In Development)<br>Built software for computing vegetation indices (NDVI, LAI) from satellite imagery, providing advanced outputs for agricultural monitoring.</li>
+                    <li><strong>Vegetation Change Monitoring and Modeling</strong> | Arta Sanjesh Negar, Iran | 2024 – Present (Near Completion)<br>Monitored and modeled vegetation changes in Golestan National Park using Explainable AI, enhancing interpretability for conservation applications.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="accordion">
+            <h2>Publications</h2>
+            <div class="accordion-header">Published Works</div>
+            <div class="accordion-content">
+                <ul>
+                    <li>Asghari Saraskanrud, S., Mohammadnejad, V., & Emami, H. (2019). "Land Use Change Analysis Using Pixel-Based and Object-Oriented Methods and Its Impact on Soil Erosion (Case Study: Maragheh County)," <em>Quantitative Geomorphological Research</em>, 8(1), 160–178.</li>
+                    <li>Asghari Saraskanrud, S., & Emami, H. (2019). "Land Surface Temperature Monitoring and Its Relationship with Land Use Using OLI and ETM+ Sensors (Case Study: Ardabil County)," <em>Applied Geographical Sciences Research</em>, 19(53), 195–215.</li>
+                    <li>Asghari Saraskanrud, S., Emami, H., Palizban, D. (2020). "Network Analysis and Fuzzy Logic Models for Landslide Susceptibility Mapping (Case Study: Sarab-Nir Road)," <em>Geography and Planning</em>, 24(73), 1–22.</li>
+                    <li>Emami, H., et al. (In Preparation). "Assessing Climate Change Impacts on Bee Species Distribution in Iran Using Deep Learning Models and Explainable AI."</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Awards and Certifications Section -->
+        <section id="awards">
+            <h2>Awards and Certifications</h2>
+            <ul>
+                <li>Ranked 14th in National M.Sc. Entrance Exam, Top 0.3% among thousands of candidates, Iran, 2018.</li>
+                <li>Ranked 1st in Remote Sensing Section of National M.Sc. Entrance Exam, Iran, 2018.</li>
+                <li>Harvard University CS50x: Introduction to Computer Science, Online Certificate, 2020.</li>
+            </ul>
+        </section>
     </div>
-  </header>
 
-  <!-- About Section -->
-  <section class="py-12 px-4" role="region" aria-labelledby="about-title">
-    <h2 id="about-title" class="section-title">About Me</h2>
-    <p class="text-center max-w-2xl mx-auto text-base md:text-lg">
-      I'm Hadi Emami, a data specialist with expertise in remote sensing data analysis and programming. Passionate about teaching and developing innovative projects in technology and agriculture.
-    </p>
-  </section>
-
-  <!-- Certifications Section -->
-  <section class="py-12 px-4 bg-gray-50" role="region" aria-labelledby="certifications-title">
-    <h2 id="certifications-title" class="section-title">Certifications</h2>
-    <div class="cert-card fade-in max-w-2xl mx-auto">
-      <h3 class="text-xl font-bold text-center mb-4 text-sky-600 flex items-center justify-center">
-        <i class="fas fa-certificate mr-2"></i> Harvard Online Computer Science Certificate
-      </h3>
-      <img src="CER/cert.PNG" alt="Harvard Online Computer Science Certificate" class="cert-img" loading="lazy">
-      <div class="text-center mt-4">
-        <a href="https://certificates.cs50.io/23dd40d4-d013-4c27-a51e-40e98ab0c767.pdf?size=letter" target="_blank" class="btn-primary inline-block">Verify Certificate</a>
-      </div>
+    <!-- Footer Satellite Animation -->
+    <div class="satellite-footer">
+        <video autoplay loop muted>
+            <source src="https://hadiiemami.github.io/assets/me/Looking%20for%20remote%20data.webm" type="video/webm">
+        </video>
     </div>
-  </section>
 
-  <!-- Skills Section -->
-  <section class="py-12 px-4 bg-gray-50" role="region" aria-labelledby="skills-title">
-    <h2 id="skills-title" class="section-title">Skills</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-      <!-- Programming & Software -->
-      <div class="skills-card fade-in">
-        <h3 class="text-xl font-bold text-center mb-4 text-sky-600 flex items-center justify-center">
-          <i class="fas fa-code mr-2"></i> Programming & Software
-        </h3>
-        <ul class="space-y-2">
-          <li class="skill-item">
-            <i class="fab fa-python"></i> Python
-            <div class="progress-bar"><div class="progress-bar-fill" style="width: 90%;"></div></div>
-          </li>
-          <li class="skill-item"><i class="fab fa-r-project"></i> R</li>
-          <li class="skill-item"><i class="fab fa-js"></i> JavaScript</li>
-          <li class="skill-item"><i class="fas fa-code"></i> Julia</li>
-          <li class="skill-item"><i class="fas fa-map"></i> ArcGIS</li>
-          <li class="skill-item"><i class="fas fa-map"></i> ArcGIS Pro</li>
-          <li class="skill-item"><i class="fas fa-map"></i> QGIS</li>
-          <li class="skill-item"><i class="fas fa-database"></i> PostGIS</li>
-          <li class="skill-item"><i class="fas fa-image"></i> ENVI</li>
-          <li class="skill-item"><i class="fas fa-cogs"></i> eCognition</li>
-          <li class="skill-item"><i class="fas fa-file-word"></i> MS Office</li>
-          <li class="skill-item"><i class="fas fa-globe"></i> Google Earth Engine</li>
-        </ul>
-      </div>
-      <!-- Data Science & Analytics -->
-      <div class="skills-card fade-in">
-        <h3 class="text-xl font-bold text-center mb-4 text-sky-600 flex items-center justify-center">
-          <i class="fas fa-chart-line mr-2"></i> Data Science & Analytics
-        </h3>
-        <ul class="space-y-2">
-          <li class="skill-item">
-            <i class="fas fa-brain"></i> Machine Learning
-            <div class="progress-bar"><div class="progress-bar-fill" style="width: 85%;"></div></div>
-          </li>
-          <li class="skill-item"><i class="fas fa-brain"></i> Deep Learning</li>
-          <li class="skill-item"><i class="fas fa-search"></i> Data Mining & Analysis</li>
-          <li class="skill-item"><i class="fas fa-database"></i> Database Management (SQL, NoSQL, PostgreSQL)</li>
-          <li class="skill-item"><i class="fas fa-chart-bar"></i> Data Visualization</li>
-          <li class="skill-item"><i class="fas fa-server"></i> Big Data Tools</li>
-          <li class="skill-item"><i class="fab fa-docker"></i> Containerization: Docker</li>
-          <li class="skill-item"><i class="fas fa-cubes"></i> Kubernetes</li>
-          <li class="skill-item"><i class="fab fa-git"></i> Version Control: Git, GitHub</li>
-          <li class="skill-item"><i class="fas fa-plug"></i> APIs: REST APIs, OpenWeather API, Google Maps API</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Hadi Emami. All rights reserved.</p>
+    </footer>
 
-  <!-- Projects Section (Slider) -->
-  <section class="py-12 px-4" role="region" aria-labelledby="projects-title">
-    <h2 id="projects-title" class="section-title">Projects</h2>
-    <div class="swiper projects-slider max-w-5xl mx-auto">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide hover-scale">
-          <img src="https://hadiiemami.github.io/proj/Detection of Unauthorized Constructions in Agricultural Zones Using Sentinel-2 Imagery.png" alt="Detection of Unauthorized Constructions in Agricultural Zones Using Sentinel-2 Imagery project screenshot" loading="lazy">
-          <div class="p-4">
-            <h3 class="text-xl font-bold">Detection of Unauthorized Constructions in Agricultural Zones Using Sentinel-2 Imagery</h3>
-            <p>Identifying unauthorized constructions using Sentinel-2 imagery.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="https://hadiiemami.github.io/proj/Detection of Wildfire-Affected Areas in the Astara Forests Using MODIS and Landsat Imagery.png" alt="Detection of Wildfire-Affected Areas in the Astara Forests Using MODIS and Landsat Imagery project screenshot" loading="lazy">
-          <div class="p-4">
-            <h3 class="text-xl font-bold">Detection of Wildfire-Affected Areas in the Astara Forests Using MODIS and Landsat Imagery</h3>
-            <p>Mapping wildfire-affected areas using MODIS and Landsat data.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="https://hadiiemami.github.io/proj/Estimating potential range shift of some wild bees in response to climate change scenarios in of Iran.png" alt="Estimating potential range shift of some wild bees in response to climate change scenarios in of Iran project screenshot" loading="lazy">
-          <div class="p-4">
-            <h3 class="text-xl font-bold">Estimating potential range shift of some wild bees in response to climate change scenarios in of Iran</h3>
-            <p>Studying climate change impacts on wild bee ranges in Iran.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="https://hadiiemami.github.io/proj/Monitoring Land Surface Temperature in Ardabil County Using Landsat 8 (Provincial Master Plan).png" alt="Monitoring Land Surface Temperature in Ardabil County Using Landsat 8 (Provincial Master Plan) project screenshot" loading="lazy">
-          <div class="p-4">
-            <h3 class="text-xl font-bold">Monitoring Land Surface Temperature in Ardabil County Using Landsat 8 (Provincial Master Plan)</h3>
-            <p>Analyzing land surface temperature using Landsat 8 data.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="https://hadiiemami.github.io/proj/Monitoring Saffron Cultivation Fields Using Sentinel-2 Imagery (Agricultural Phenology).png" alt="Monitoring Saffron Cultivation Fields Using Sentinel-2 Imagery (Agricultural Phenology) project screenshot" loading="lazy">
-          <div class="p-4">
-            <h3 class="text-xl font-bold">Monitoring Saffron Cultivation Fields Using Sentinel-2 Imagery (Agricultural Phenology)</h3>
-            <p>Tracking saffron cultivation using Sentinel-2 imagery.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="https://hadiiemami.github.io/proj/Monitoring the Extent and Volume of Flooding in Aq Qala Using Sentinel-2 Imagery.png" alt="Monitoring the Extent and Volume of Flooding in Aq Qala Using Sentinel-2 Imagery project screenshot" loading="lazy">
-          <div class="p-4">
-            <h3 class="text-xl font-bold">Monitoring the Extent and Volume of Flooding in Aq Qala Using Sentinel-2 Imagery</h3>
-            <p>Assessing flood extent and volume using Sentinel-2 imagery.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="https://hadiiemami.github.io/proj/Monitoring Vegetation Phenology Using Sentinel-2 Imagery and Evaluating Its Performance.png" alt="Monitoring Vegetation Phenology Using Sentinel-2 Imagery and Evaluating Its Performance project screenshot" loading="lazy">
-          <div class="p-4">
-            <h3 class="text-xl font-bold">Monitoring Vegetation Phenology Using Sentinel-2 Imagery and Evaluating Its Performance</h3>
-            <p>Evaluating vegetation phenology with Sentinel-2 imagery.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </section>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper for Courses and Projects
+        const swiperCourses = new Swiper('#courses .swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
 
-  <!-- Teaching Section (Slider) -->
-  <section class="py-12 px-4 bg-gray-50" role="region" aria-labelledby="teaching-title">
-    <h2 id="teaching-title" class="section-title">Teaching</h2>
-    <div class="swiper teaching-slider max-w-5xl mx-auto">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Crop Type Classification with R.png" alt="Crop Type Classification with R course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Crop Type Classification with R</h3>
-            <p>Learn to classify crop types using R and satellite imagery.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Crop Yield Prediction with Python.png" alt="Crop Yield Prediction with Python course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Crop Yield Prediction with Python</h3>
-            <p>Predict crop yields using Python and machine learning.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Deep Learning Lithology Classification for Remote Sensing.png" alt="Deep Learning Lithology Classification for Remote Sensing course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Deep Learning Lithology Classification</h3>
-            <p>Apply deep learning for lithology classification in remote sensing.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/DEM Analysis with Python.png" alt="DEM Analysis with Python course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">DEM Analysis with Python</h3>
-            <p>Analyze Digital Elevation Models using Python.</p>
-            <p>Learn to process and visualize DEM data effectively.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/GDAL for Geospatial Data Processing.png" alt="GDAL for Geospatial Data Processing course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">GDAL for Geospatial Data Processing</h3>
-            <p>Process geospatial data with GDAL in Python.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Geographic Weighted Regression with Python.png" alt="Geographic Weighted Regression with Python course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Geographic Weighted Regression</h3>
-            <p>Perform geographic weighted regression using Python.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Geoprocessing with R - Spatial data and satellite imagery processing.png" alt="Geoprocessing with R course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Geoprocessing with R</h3>
-            <p>Learn geoprocessing with R for spatial data analysis.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Land Surface Temperature (LST) with Python & R.png" alt="Land Surface Temperature with Python & R course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Land Surface Temperature</h3>
-            <p>Analyze land surface temperature using Python and R.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Landslide Susceptibility Mapping with ANP.png" alt="Landslide Susceptibility Mapping with ANP course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Landslide Susceptibility Mapping</h3>
-            <p>Create landslide susceptibility maps using Analytic Network Process.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Matplotlib for Data Visualization in Python.png" alt="Matplotlib for Data Visualization in Python course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Matplotlib for Data Visualization</h3>
-            <p>Create impactful visualizations with Matplotlib in Python.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Monitoring Agriculture phenology with Python and Sentinel 2 Imagery.png" alt="Monitoring Agriculture Phenology course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Monitoring Agriculture Phenology</h3>
-            <p>Monitor agricultural phenology using Sentinel-2 imagery.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/NumPy for Numerical Computing in Python.png" alt="NumPy for Numerical Computing in Python course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">NumPy for Numerical Computing</h3>
-            <p>Master numerical computing with NumPy in Python.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Object oriented Satellite image classification.png" alt="Object-Oriented Satellite Image Classification course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Object-Oriented Satellite Image Classification</h3>
-            <p>Learn object-oriented satellite image classification techniques.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Object-Based Image Analysis with eCognition.png" alt="Object-Based Image Analysis with eCognition course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Object-Based Image Analysis</h3>
-            <p>Perform object-based image analysis using eCognition.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Python for Geological Data Analysis.png" alt="Python for Geological Data Analysis course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Python for Geological Data Analysis</h3>
-            <p>Analyze geological data using Python.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Python Mastery 0 - 100.png" alt="Python Mastery 0 - 100 course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Python Mastery 0 - 100</h3>
-            <p>Master Python programming from beginner to advanced.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Satellite Image Processing with Python.png" alt="Satellite Image Processing with Python course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Satellite Image Processing with Python</h3>
-            <p>Process satellite images using Python.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Satellite Imagery Time Series Analysis in Python.png" alt="Satellite Imagery Time Series Analysis in Python course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Satellite Imagery Time Series Analysis</h3>
-            <p>Analyze satellite imagery time series using Python.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Snow Cover Mapping with Satellite Imagery.png" alt="Snow Cover Mapping with Satellite Imagery course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Snow Cover Mapping</h3>
-            <p>Map snow cover using satellite imagery.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-        <div class="swiper-slide hover-scale">
-          <img src="assets/Vegetation & Tree Cover Classification.png" alt="Vegetation & Tree Cover Classification course cover" loading="lazy">
-          <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Vegetation & Tree Cover Classification</h3>
-            <p>Classify vegetation and tree cover using satellite data.</p>
-            <a href="#" class="btn-primary inline-block mt-2">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </section>
+        const swiperProjects = new Swiper('#projects .swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
 
-  <!-- Swiper Initialization Script -->
-  <script>
-    // Initialize Projects Slider
-    new Swiper('.projects-slider', {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      breakpoints: {
-        640: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-      },
-    });
-
-    // Initialize Teaching Slider with Two Rows
-    new Swiper('.teaching-slider', {
-      slidesPerView: 1,
-      slidesPerColumn: 2,
-      slidesPerColumnFill: 'row',
-      spaceBetween: 20,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      breakpoints: {
-        640: {
-          slidesPerView: 2,
-          slidesPerColumn: 2,
-        },
-        1024: {
-          slidesPerView: 3,
-          slidesPerColumn: 2,
-        },
-      },
-    });
-
-    // Fade-in Animation for Skills and Certifications Sections
-    const fadeInElements = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    fadeInElements.forEach((el) => observer.observe(el));
-  </script>
+        // Accordion Functionality
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
